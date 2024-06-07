@@ -1,0 +1,44 @@
+<p>resize-box works!</p>
+<div class="box-flex" cdkDragLockAxis="x">
+  <div
+    class="box-edge"
+    cdkDrag
+    cdkDragLockAxis="x"
+    (cdkDragMoved)="calcPosition(1, $event)"
+    (cdkDragStarted)="memoizeBox()"
+    [cdkDragFreeDragPosition]="box1dragPosition"
+  ></div>
+  <div
+    class="box-content"
+    cdkDrag
+    cdkDragLockAxis="x"
+    [style.width.px]="wdth"
+    (cdkDragMoved)="calcPosition(2, $event)"
+    (cdkDragStarted)="memoizeBox()"
+    [cdkDragFreeDragPosition]="box2dragPosition"
+  ></div>
+  <div
+    class="box-edge"
+    cdkDrag
+    cdkDragLockAxis="x"
+    (cdkDragMoved)="calcPosition(3, $event)"
+    (cdkDragStarted)="memoizeBox()"
+    [cdkDragFreeDragPosition]="box3dragPosition"
+  ></div>
+</div>
+
+<p>BOX1 - X:{{ box1dragPosition.x }} Y:{{ box1dragPosition.y }}</p>
+
+<p>
+  BOX2 - X:{{ box2dragPosition.x }} Y:{{ box2dragPosition.y }} Width: {{ wdth }}
+</p>
+
+<p>BOX3 - X:{{ box3dragPosition.x }} Y:{{ box3dragPosition.y }}</p>
+
+<div class="example-box" cdkDragLockAxis="y" cdkDrag>
+  I can only be dragged up/down
+</div>
+
+<div class="example-box" cdkDragLockAxis="x" cdkDrag>
+  I can only be dragged left/right
+</div>
